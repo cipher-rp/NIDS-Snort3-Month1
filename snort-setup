@@ -1,0 +1,26 @@
+# Update your system
+sudo apt update && sudo apt upgrade -y
+
+# Install Snort
+sudo apt install snort -y
+
+# Verify Snort version
+snort -V
+# Check your IP addresses
+ip a
+
+# Navigate directories
+cd /etc/snort
+
+# List files
+ls -l
+
+# View Snort config files
+cat snort.conf
+# List network interfaces to find your active one
+ip link show
+
+# Run Snort in IDS mode on interface (e.g., eth0)
+sudo snort -i eth0 -c /etc/snort/snort.conf -A console
+# Run Snort in NIDS mode
+sudo snort -i eth0 -c /etc/snort/snort.conf -A console -s 65535 -k none
